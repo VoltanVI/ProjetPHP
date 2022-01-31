@@ -59,6 +59,11 @@
     </header>
     <h2>Tableau de vol</h2>
     <main class="px-3">
+<?php
+require_once 'affichage.php';
+$coBDD = new affichage();
+
+?>
         <table id="tableau" style="width:100%" class="cell-border">
             <thead>
             <tr>
@@ -71,22 +76,22 @@
             </tr>
             </thead>
             <tbody>
-            <?php //for    ?>
+            <?php foreach ($coBDD as $value)   ?>
             <tr class="bg-secondary ">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
             </tr>
             <tr class="bg-black">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
+                <th><?php $value->afficher(); ?></th>
             </tr>
             <tr class="bg-secondary">
                 <th></th>
