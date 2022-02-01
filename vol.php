@@ -61,7 +61,9 @@
     <main class="px-3">
 <?php
 require_once 'affichage.php';
-$coBDD = new affichage();
+$bdd = new bdd();
+$req = $bdd->bdd()->prepare('SELECT * FROM vol');
+$req->execute();
 
 ?>
         <table id="tableau" style="width:100%" class="cell-border">
@@ -76,89 +78,18 @@ $coBDD = new affichage();
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($coBDD as $value)   ?>
+            <?php
+                while($value = $req->fetch()){
+                ?>
             <tr class="bg-secondary ">
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
+                <th><?php echo $value['id_vol'] ?></th>
+                <th><?php echo $value['date_depart'] ?></th>
+                <th><?php echo $value['heure_depart'] ?></th>
+                <th><?php echo $value['heure_arrivee'] ?></th>
+                <th><?php echo $value['ref_pilote'] ?></th>
+                <th><?php echo $value['ref_avion'] ?></th>
             </tr>
-            <tr class="bg-black">
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-                <th><?php $value->afficher(); ?></th>
-            </tr>
-            <tr class="bg-secondary">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="bg-black">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="bg-secondary">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="bg-black">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="bg-secondary">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="bg-black">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="bg-secondary">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr class="bg-black ">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-
-
+                <?php } ?>
             </tbody>
         </table>
     </main>
