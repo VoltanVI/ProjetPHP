@@ -20,7 +20,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -40,7 +40,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="../assets/css/cover.css" rel="stylesheet">
 </head>
 <body class="d-flex h-100 text-center text-white bg bg-secondary">
 
@@ -49,7 +49,7 @@
         <div>
             <h3 class="float-md-start mb-0">HurJet</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end justify-content-center">
-                <a class="nav-link text-light" href="index.html">Accueil</a>
+                <a class="nav-link text-light" href="../index.html">Accueil</a>
                 <a class="nav-link active text-light" href="#">Vol</a>
                 <a class="nav-link text-light" href="contact.html">Contact</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp

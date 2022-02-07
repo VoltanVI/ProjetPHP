@@ -1,8 +1,8 @@
 <?php
 
-require_once 'bdd.php';
+require_once '../../src/bdd/Bdd.php';
 
-class affichage
+class Affichage
 {
 
     private $select;

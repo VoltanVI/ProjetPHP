@@ -1,10 +1,9 @@
 <?php
 
-class bdd
+class Bdd
 {
 
     private $bdd;
-
 
     public function __construct()
     {
