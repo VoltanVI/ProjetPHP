@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../src/bdd/Bdd.php';
+require_once '../src/bdd/Bdd.php';
 
 class Affichage
 {
