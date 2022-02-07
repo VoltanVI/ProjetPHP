@@ -14,13 +14,15 @@
             crossorigin="anonymous">
 
     </script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -40,7 +42,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/cover.css" rel="stylesheet">
+    <link href="../../assets/css/cover.css" rel="stylesheet">
 </head>
 <body class="d-flex h-100 text-center text-white bg bg-secondary">
 
@@ -49,9 +51,10 @@
         <div>
             <h3 class="float-md-start mb-0">HurJet</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end justify-content-center">
-                <a class="nav-link text-light" href="../index.html">Accueil</a>
+                <a class="nav-link text-light" href="../../index.html">Accueil</a>
                 <a class="nav-link active text-light" href="#">Vol</a>
-                <a class="nav-link text-light" href="contact.html">Contact</a>
+                <a class="nav-link text-light" href="../../src/modele/contact.html">Contact</a>
+                <a class="nav-link text-light" href="connexionUser.html">Connexion</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
                 <a class="text-light btn btn-outline-secondary" href="saisi.html">Commencer</a>
             </nav>
@@ -59,13 +62,13 @@
     </header>
     <h2>Tableau de vol</h2>
     <main class="px-3">
-<?php
-require_once 'affichage.php';
-$bdd = new bdd();
-$req = $bdd->bdd()->prepare('SELECT * FROM vol');
-$req->execute();
+        <?php
+        require_once '../../src/traitement/Affichage.php';
+        $bdd = new Bdd();
+        $req = $bdd->bdd()->prepare('SELECT * FROM vol');
+        $req->execute();
 
-?>
+        ?>
         <table id="tableau" style="width:100%" class="cell-border">
             <thead>
             <tr>
@@ -79,20 +82,34 @@ $req->execute();
             </thead>
             <tbody>
             <?php
-                while($value = $req->fetch()){
+            while($value = $req->fetch()){
                 ?>
-            <tr class="bg-secondary ">
-                <th><?php echo $value['id_vol'] ?></th>
-                <th><?php echo $value['date_depart'] ?></th>
-                <th><?php echo $value['heure_depart'] ?></th>
-                <th><?php echo $value['heure_arrivee'] ?></th>
-                <th><?php echo $value['ref_pilote'] ?></th>
-                <th><?php echo $value['ref_avion'] ?></th>
-            </tr>
-                <?php } ?>
+                <tr class="bg-secondary ">
+                    <th><?php echo $value['id_vol'] ?></th>
+                    <th><?php echo $value['date_depart'] ?></th>
+                    <th><?php echo $value['heure_depart'] ?></th>
+                    <th><?php echo $value['heure_arrivee'] ?></th>
+                    <th><?php echo $value['ref_pilote'] ?></th>
+                    <th><?php echo $value['ref_avion'] ?></th>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
     </main>
+    <br><br>
+    <?php
+
+    $request = $bdd->bdd()->prepare('SELECT * FROM pilote');
+    $request->execute();
+
+    ?>
+    <p>ID Nom Prenom</p>
+    <select>
+
+        <?php while($val = $request->fetch()){ ?>
+            <option><?php echo $val['id_pilote'].' '.$val['nom'].' '.$val['prenom'] ?></option>
+        <?php  }   ?>
+    </select>
 
     <footer class="mt-auto text-white-50">
 
@@ -105,5 +122,10 @@ $req->execute();
     $(document).ready( function () {
         $('#tableau').DataTable();
     } );
+</script>
+<script>
+    "dependencies": {
+        "select2": "~4.0"
+    }
 </script>
 </html>
