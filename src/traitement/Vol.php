@@ -1,9 +1,8 @@
 <?php
 
-require_once '../src/bdd/Bdd.php';
+require_once '../../src/bdd/Bdd.php';
 class Vol
 {
-
 
     public function connexion (){
 
@@ -17,9 +16,11 @@ class Vol
 
         if ($res) {
             session_start();
-            header('Location: ../vue/espaceMembre.html');
+            $_SESSION['nom'] = $_POST['nom'];
+            $_SESSION['prenom'] = $_POST['prenom'];
+            header('Location: ../../vue/espaceMembre.html');
         } else {
-            header('Location: ../vue/connexionUser.php');
+            header('Location: ../../vue/connexionUser.php');
         }
     }
 

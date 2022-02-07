@@ -53,7 +53,9 @@
     </header>
 
     <main class="px-3">
+
         <form action="../src/traitement/connexion.php" method="post">
+
             Identifiant<br><br>
             <input type="text" name="nom" class="form-control" placeholder="Nom"><br><br>
             Mot de passe<br><br>
