@@ -54,7 +54,7 @@
                 <a class="nav-link text-light" href="../index.html">Accueil</a>
                 <a class="nav-link active text-light" href="#">Vol</a>
                 <a class="nav-link text-light" href="../vue/contact.html">Contact</a>
-                <a class="nav-link text-light" href="connexionUser.html">Connexion</a>
+                <a class="nav-link text-light" href="connexionUser.php">Connexion</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
                 <a class="text-light btn btn-outline-secondary" href="saisi.html">Commencer</a>
             </nav>
@@ -63,7 +63,7 @@
     <h2>Tableau de vol</h2>
     <main class="px-3">
         <?php
-        require_once '../src/traitement/Affichage.php';
+        require_once '../src/bdd/Bdd.php';
         $bdd = new Bdd();
         $req = $bdd->bdd()->prepare('SELECT * FROM vol');
         $req->execute();

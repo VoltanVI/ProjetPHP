@@ -36,7 +36,7 @@ class Vol
             'ref_avion'=>$_POST['ravion']
         ));
 
-        header('Location: ../src/vue/saisi.html');
+        header('Location: ../../src/vue/saisi.html');
     }
 
     public function selectVol(){
