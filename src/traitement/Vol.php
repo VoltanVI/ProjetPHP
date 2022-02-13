@@ -22,12 +22,14 @@ class Vol
         } else {
             header('Location: ../../vue/connexionUser.php');
         }
+
     }
 
     public function insertion(){
 
         $bdd = new Bdd();
-        $ins = $bdd->bdd()->prepare('INSERT INTO vol (date_depart, heure_depart, heure_arrivee, ref_pilote, ref_avion) VALUES (:ddepart,:hdepart,:harrivee,:rpilote,:ravion)');
+
+        $ins = $bdd->bdd()->prepare('INSERT INTO vol (date_depart, heure_depart, heure_arrivee, ref_pilote, ref_avion) VALUES (:date_depart,:heure_depart,:heure_arrivee,:ref_pilote,:ref_avion)');
         $ins->execute(array(
             'date_depart'=>$_POST['ddepart'],
             'heure_depart'=>$_POST['hdepart'],
@@ -35,8 +37,8 @@ class Vol
             'ref_pilote'=>$_POST['rpilote'],
             'ref_avion'=>$_POST['ravion']
         ));
+        header('Location: ../../vue/vol.php');
 
-        header('Location: ../../src/vue/saisi.html');
     }
 
     public function selectVol(){
@@ -44,6 +46,8 @@ class Vol
         $bdd = new bdd();
         $req = $bdd->bdd()->prepare('SELECT * FROM vol');
         $req->execute();
+
+
     }
 
     public function deconnexion(){
