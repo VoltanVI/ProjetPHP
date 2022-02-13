@@ -40,7 +40,6 @@
         }
     </style>
 
-
     <!-- Custom styles for this template -->
     <link href="../assets/css/cover.css" rel="stylesheet">
 </head>
@@ -54,9 +53,10 @@
                 <a class="nav-link text-light" href="../index.html">Accueil</a>
                 <a class="nav-link active text-light" href="#">Vol</a>
                 <a class="nav-link text-light" href="../vue/contact.html">Contact</a>
-                <a class="nav-link text-light" href="connexionUser.php">Connexion</a>
+                <a class="nav-link text-light" href="saisi.html">Saisir</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
-                <a class="text-light btn btn-outline-secondary" href="saisi.html">Commencer</a>
+                <a class="text-light btn btn-outline-secondary" href="connexionUser.php">Connexion</a>
+
             </nav>
         </div>
     </header>
