@@ -46,5 +46,12 @@ class Vol
         $req->execute();
     }
 
+    public function deconnexion(){
+
+        session_destroy();
+        header('Location: ../../index.html');
+
+    }
+
 
 }
