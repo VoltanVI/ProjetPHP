@@ -61,22 +61,16 @@
     $request = $bdd->bdd()->prepare('SELECT * FROM vol');
     $request->execute();
     ?>
-    <h2>Choisissez le vol à supprimer</h2><br><br>
-    <p>ID | Date départ | Heure de départ | Heure d'arrivee | Reference Pilote | Reference Avion</p>
+    <h2>Choisissez l'id du vol à supprimer</h2><br><br>
+    <p>ID</p>
     <main class="px-3">
-       <select>
+        <form action="../src/traitement/deleteVol.php">
             <?php while($val = $request->fetch()){ ?>
-            <option  href="index.html"><?php echo $val['id_vol'].' | '.$val['date_depart'].' | '.$val['heure_depart'].' | '.$val['heure_arrivee'].' | '.$val['ref_pilote'].' | '.$val['ref_avion'] ?></option>
+            <option href="index.html"><?php echo $val['id_vol']?></option>
             <?php  }
-            $_POST['id_vol'] = $val['id_vol'];
-            $_POST['date_depart'] = $val['date_depart'];
-            $_POST['heure_depart'] = $val['heure_depart'];
-            $_POST['heure_arrivee'] =$val['heure_arrivee'];
-            $_POST['ref_pilote'] = $val['ref_pilote'];
-            $_POST['ref_avion'] = $val['ref_avion'];
-            header('Location: ../../src/traitement/deleteVol.php');
+            header('Location: ../src/traitement/deleteVol.php');
             ?>
-        </select>
+        </form>
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         <a href="vol.php"><button type="button" class="btn btn-light">Valider</button></a>
     </main>

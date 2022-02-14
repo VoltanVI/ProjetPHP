@@ -72,7 +72,7 @@
         </select>
         <br><br>
 
-        <form action="../src/traitement/update.php" method="post">
+        <form action="../src/traitement/updateVol.php" method="post">
 
             Date de départ<br><br>
             <input type="date" name="ddepart" class="form-control"><br><br>

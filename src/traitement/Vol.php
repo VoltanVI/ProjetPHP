@@ -72,16 +72,7 @@ class Vol
 
     public function delete(){
 
-        $bdd = new Bdd();
-        $del = $bdd->bdd()->prepare('DELETE FROM vol WHERE id_vol = :id_vol, date_depart = :date_depart, heure_depart = :heure_depart, heure_arriver = :heure_arrivee, ref_pilote = :ref_pilote, ref_avion = :ref_avion');
-        $del->execute(array(
-            'id_vol'=>$_POST['id_vol'],
-            'date_depart'=>$_POST['datedepart'],
-            'heure_depart'=>$_POST['heuredepart'],
-            'heure_arrivee'=>$_POST['heurearrivee'],
-            'ref_pilote'=>$_POST['refpilote'],
-            'ref_avion'=>$_POST['refavion']
-        ));
+
 
 
     }
