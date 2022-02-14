@@ -43,38 +43,44 @@
 
             <h3 class="float-md-start mb-0">HurJet</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end justify-content-center">
-                <a class="nav-link text-light" href="../index.html">Accueil</a>
+                <a class="nav-link text-light"  href="../index.html">Accueil</a>
                 <a class="nav-link text-light" href="vol.php">Vol</a>
                 <a class="nav-link text-light" href="contact.html">Contact</a>
                 <a class="nav-link text-light" href="saisi.html">Saisir</a>
-                <a class="nav-link active text-light" href="#">Modifier</a>
+                <a class="nav-link text-light" href="update.php">Modifier</a>
+                <a class="nav-link active text-light" href="delete.php">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
                 <a class="text-light btn btn-outline-secondary" href="connexionUser.php">Connexion</a>
 
             </nav>
         </div>
     </header>
-    <div>
-        <h2>Mise a jour d'un vol</h2>
-        <br>
-        <p>Selectionner l'ID du vol a modifier</p>
+    <?php
+    require_once '../src/bdd/Bdd.php';
+    $bdd = new Bdd();
+    $request = $bdd->bdd()->prepare('SELECT * FROM vol');
+    $request->execute();
+    ?>
+    <h2>Choisissez le vol à supprimer</h2><br><br>
+    <p>ID | Date départ | Heure de départ | Heure d'arrivee | Reference Pilote | Reference Avion</p>
+    <main class="px-3">
+       <select>
+            <?php while($val = $request->fetch()){ ?>
+            <option  href="index.html"><?php echo $val['id_vol'].' | '.$val['date_depart'].' | '.$val['heure_depart'].' | '.$val['heure_arrivee'].' | '.$val['ref_pilote'].' | '.$val['ref_avion'] ?></option>
+            <?php  }
+            $_POST['id_vol'] = $val['id_vol'];
+            $_POST['date_depart'] = $val['date_depart'];
+            $_POST['heure_depart'] = $val['heure_depart'];
+            $_POST['heure_arrivee'] =$val['heure_arrivee'];
+            $_POST['ref_pilote'] = $val['ref_pilote'];
+            $_POST['ref_avion'] = $val['ref_avion'];
+            header('Location: ../../src/traitement/deleteVol.php');
+            ?>
+        </select>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <a href="vol.php"><button type="button" class="btn btn-light">Valider</button></a>
+    </main>
 
-
-        <form action="../src/traitement/update.php" method="post">
-            Date de départ<br><br>
-            <input type="date" name="ddepart" class="form-control"><br><br>
-            Heure d'arrivée<br><br>
-            <input type="time" name="hdepart" class="form-control"><br><br>
-            Heure de départ<br><br>
-            <input type="time" name="harrivee" class="form-control"><br><br>
-            Reference Pilote<br><br>
-            <input type="number" name="rpilote" class="form-control"><br><br>
-            Reference Avion<br><br>
-            <input type="number" name="ravion" class="form-control"><br><br>
-            <input type="submit" value="Valider">
-
-        </form>
-    </div>
     <footer class="mt-auto text-white-50">
 
     </footer>

@@ -46,20 +46,33 @@
                 <a class="nav-link text-light" href="../index.html">Accueil</a>
                 <a class="nav-link text-light" href="vol.php">Vol</a>
                 <a class="nav-link text-light" href="contact.html">Contact</a>
-                <a class="nav-link active text-light" href="#">Saisir</a>
-                <a class="nav-link text-light" href="update.php">Modifier</a>
+                <a class="nav-link text-light" href="saisi.html">Saisir</a>
+                <a class="nav-link active text-light" href="#">Modifier</a>
                 <a class="nav-link text-light" href="delete.php">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
                 <a class="text-light btn btn-outline-secondary" href="connexionUser.php">Connexion</a>
+
             </nav>
         </div>
     </header>
-    <div>
+    <div><br>
+        <h2>Mise a jour d'un vol</h2>
 
-        <h2>Ajouter un vol</h2>
-        <br>
+        <p>Selectionner l'ID du vol a modifier</p>
 
-        <form action="../src/traitement/ajoutVol.php" method="post">
+        <select>
+            <?php
+            require_once '../src/bdd/Bdd.php';
+            $bdd = new Bdd();
+            $req = $bdd->bdd()->prepare('SELECT * FROM vol');
+            $req->execute();
+            while($val = $req->fetch()){ ?>
+            <option href="index.html"><?php echo $val['id_vol']?></option>
+            <?php  }   ?>
+        </select>
+        <br><br>
+
+        <form action="../src/traitement/update.php" method="post">
 
             Date de départ<br><br>
             <input type="date" name="ddepart" class="form-control"><br><br>

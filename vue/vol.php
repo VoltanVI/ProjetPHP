@@ -54,7 +54,8 @@
                 <a class="nav-link active text-light" href="#">Vol</a>
                 <a class="nav-link text-light" href="../vue/contact.html">Contact</a>
                 <a class="nav-link text-light" href="saisi.html">Saisir</a>
-                <a class="nav-link text-light" href="update.html">Modifier</a>
+                <a class="nav-link text-light" href="update.php">Modifier</a>
+                <a class="nav-link text-light" href="delete.php">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
                 <a class="text-light btn btn-outline-secondary" href="connexionUser.php">Connexion</a>
 
