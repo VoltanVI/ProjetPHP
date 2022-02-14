@@ -43,11 +43,12 @@
 
             <h3 class="float-md-start mb-0">HurJet</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end justify-content-center">
-                <a class="nav-link active text-light" aria-current="page" href="#">Accueil</a>
+                <a class="nav-link active text-light" href="#">Accueil</a>
                 <a class="nav-link text-light" href="vol.php">Vol</a>
                 <a class="nav-link text-light" href="contact.html">Contact</a>
                 <a class="nav-link text-light" href="saisi.html">Saisir</a>
                 <a class="nav-link text-light" href="update.html">Modifier</a>
+                <a class="nav-link text-light" href="delete.php">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
                 <a class="text-light btn btn-outline-secondary" href="../src/traitement/deconnexion.php ">Déconnexion</a>
 

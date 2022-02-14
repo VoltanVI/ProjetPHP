@@ -5,7 +5,7 @@ class Vol
 {
 
     public function connexion (){
-
+        session_start();
         $bdd = new Bdd();
         $sel = $bdd->bdd()->prepare('SELECT * FROM pilote WHERE nom = :nom AND prenom = :prenom');
         $sel->execute(array(
@@ -18,7 +18,7 @@ class Vol
             session_start();
             $_SESSION['nom'] = $_POST['nom'];
             $_SESSION['prenom'] = $_POST['prenom'];
-            header('Location: ../../vue/espaceMembre.html');
+            header('Location: ../../vue/espaceMembre.php');
         } else {
             header('Location: ../../vue/connexionUser.php');
         }
@@ -54,7 +54,6 @@ class Vol
         $bdd = new Bdd();
         $sel = $this->selectVol();
         $sel->fetchAll();
-        
 
         if ($sel){
 
@@ -74,12 +73,22 @@ class Vol
 
     }
 
-    public function deconnexion(){
+    public function delete(){
 
-        session_destroy();
-        header('Location: ../../index.html');
+        require_once '../traitement/deleteVol.php';
+
+        $bdd = new Bdd();
+        $del = $bdd->bdd()->prepare('DELETE FROM vol WHERE id_vol = :id_vol, date_depart = :date_depart, heure_depart = :heure_depart, heure_arriver = :heure_arrivee, ref_pilote = :ref_pilote, ref_avion = :ref_avion');
+        $del->execute(array(
+            'id_vol'=>$_POST['id'],
+            'date_depart'=>$_POST['datedepart'],
+            'heure_depart'=>$_POST['heuredepart'],
+            'heure_arrivee'=>$_POST['heurearrivee'],
+            'ref_pilote'=>$_POST['refpilote'],
+            'ref_avion'=>$_POST['refavion']
+        ));
+
 
     }
-
 
 }
