@@ -70,11 +70,4 @@ class Vol
 
     }
 
-    public function delete(){
-
-
-
-
-    }
-
 }

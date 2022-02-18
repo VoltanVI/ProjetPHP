@@ -64,15 +64,16 @@
     <h2>Choisissez l'id du vol à supprimer</h2><br><br>
     <p>ID</p>
     <main class="px-3">
-        <form action="../src/traitement/deleteVol.php">
+        <form action="../src/traitement/deleteVol.php" method="post">
+            <select name="id_vol">
             <?php while($val = $request->fetch()){ ?>
-            <option href="index.html"><?php echo $val['id_vol']?></option>
-            <?php  }
-            header('Location: ../src/traitement/deleteVol.php');
-            ?>
+                <option><?php echo $val['id_vol']?></option>
+            <?php }   ?>
+            </select>
+            <br><br>
+            <button type="submit" class="btn btn-light">Valider</button>
         </form>
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <a href="vol.php"><button type="button" class="btn btn-light">Valider</button></a>
+
     </main>
 
     <footer class="mt-auto text-white-50">
