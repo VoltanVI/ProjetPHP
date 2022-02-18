@@ -67,7 +67,7 @@
             $req = $bdd->bdd()->prepare('SELECT * FROM vol');
             $req->execute();
             while($val = $req->fetch()){ ?>
-            <option href="index.html"><?php echo $val['id_vol']?></option>
+            <option><?php echo $val['id_vol']?></option>
             <?php  }   ?>
         </select>
         <br><br>
