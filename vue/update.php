@@ -61,6 +61,7 @@
         <p>Selectionner l'ID du vol a modifier</p>
 
         <form action="../src/traitement/updateVol.php" method="post">
+
             <select name="id_vol">
                 <?php
                 require_once '../src/bdd/Bdd.php';
@@ -69,8 +70,11 @@
                 $req->execute();
                 while($val = $req->fetch()){ ?>
                     <option><?php echo $val['id_vol']?></option>
-                <?php  }     ?>
+                <?php  }
+                $_POST['id_vol'] = $val['id_vol'];
+                ?>
             </select>
+
             <br><br>
             Date de départ<br><br>
             <input type="date" name="ddepart" class="form-control"><br><br>

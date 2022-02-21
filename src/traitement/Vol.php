@@ -52,15 +52,16 @@ class Vol
     public function updateVol(){
 
         $bdd = new Bdd();
-        $up = $bdd->bdd()->prepare('UPDATE vol SET date_depart = :date_depart, heure_depart = :heure_depart, heure_arriver = :heure_arrivee, ref_pilote = :ref_pilote, ref_avion = :ref_avion');
+        $up = $bdd->bdd()->prepare('UPDATE vol SET date_depart = :date_depart, heure_depart = :heure_depart, heure_arrivee = :heure_arrivee, ref_pilote = :ref_pilote, ref_avion = :ref_avion WHERE id_vol = :id_vol');
         $up->execute(array(
+            'id_vol'=>$_POST['id_vol'],
             'date_depart'=>$_POST['ddepart'],
             'heure_depart'=>$_POST['hdepart'],
             'heure_arrivee'=>$_POST['harrivee'],
             'ref_pilote'=>$_POST['rpilote'],
             'ref_avion'=>$_POST['ravion']
         ));
-        
+
         header('Location: ../../vue/vol.php');
 
     }
