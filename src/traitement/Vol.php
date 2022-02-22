@@ -22,6 +22,7 @@ class Vol
         } else {
             header('Location: ../../vue/connexionUser.php');
         }
+        $this->hydrate();
 
     }
 
@@ -38,6 +39,7 @@ class Vol
             'ref_avion'=>$_POST['ravion']
         ));
         header('Location: ../../vue/vol.php');
+        $this->hydrate();
 
     }
 
@@ -63,6 +65,7 @@ class Vol
         ));
 
         header('Location: ../../vue/vol.php');
+        $this->hydrate();
 
     }
 
@@ -75,8 +78,18 @@ class Vol
 
         ));
         header('Location: ../../vue/vol.php');
-
+        $this->hydrate();
 
     }
+
+    public function hydrate(array $donnees){
+        foreach ($donnees as $key => $value) {
+            $method = 'set' . ucfirst($key);
+            if (method_exists($this, $method)) {// On appelle le setter.
+                $this->$method($value);
+            }
+        }
+    }
+
 
 }
