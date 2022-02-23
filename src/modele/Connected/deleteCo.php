@@ -50,7 +50,7 @@
                 <a class="nav-link text-light" href="updateCo.php">Modifier</a>
                 <a class="nav-link active text-light" href="#">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
-                <a class="text-light btn btn-outline-secondary" href="espaceMembre.php">Connexion</a>
+                <a class="text-light btn btn-outline-secondary" href="espaceMembre.php">Mon compte</a>
 
             </nav>
         </div>

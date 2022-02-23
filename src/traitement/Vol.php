@@ -7,7 +7,7 @@ class Vol
     public function connexion (){
         session_start();
         $bdd = new Bdd();
-        $sel = $bdd->bdd()->prepare('SELECT * FROM pilote WHERE nom = :nom AND prenom = :prenom');
+        $sel = $bdd->bdd()->prepare('SELECT * FROM user WHERE login = :nom AND mdp = :prenom');
         $sel->execute(array(
             'nom' => $_POST['nom'],
             'prenom' => $_POST['prenom']
@@ -23,6 +23,24 @@ class Vol
             header('Location: ../../src/modele/connexionUser.php');
         }
         $this->hydrate();
+
+    }
+
+    public function inscription(){
+
+        $bdd = new Bdd();
+        $req = $bdd->bdd()->prepare('SELECT * FROM user');
+        $req->execute();
+        if (!$req->fetchAll()){
+            $inscrit = $bdd->bdd()->prepare('INSERT INTO user (nom, login, mdp) VALUES (:nom, :login, :mdp)');
+            $inscrit->execute(array(
+                'nom'=>$_POST['nom'],
+                'login'=>$_POST['login'],
+                'mdp'=>$_POST['mdp']
+            ));
+            header('Location: ');
+        }
+
 
     }
 
