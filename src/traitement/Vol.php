@@ -18,9 +18,9 @@ class Vol
             session_start();
             $_SESSION['nom'] = $_POST['nom'];
             $_SESSION['prenom'] = $_POST['prenom'];
-            header('Location: ../../vue/espaceMembre.php');
+            header('Location: ../../src/modele/Connected/espaceMembre.php');
         } else {
-            header('Location: ../../vue/connexionUser.php');
+            header('Location: ../../src/modele/connexionUser.php');
         }
         $this->hydrate();
 
@@ -38,7 +38,7 @@ class Vol
             'ref_pilote'=>$_POST['rpilote'],
             'ref_avion'=>$_POST['ravion']
         ));
-        header('Location: ../../vue/vol.php');
+        header('Location: ../../src/modele/vol.php');
         $this->hydrate();
 
     }
@@ -64,7 +64,7 @@ class Vol
             'ref_avion'=>$_POST['ravion']
         ));
 
-        header('Location: ../../vue/vol.php');
+        header('Location: ../../src/modele/vol.php');
         $this->hydrate();
 
     }
@@ -77,7 +77,7 @@ class Vol
             'id_vol'=>$_POST['id_vol']
 
         ));
-        header('Location: ../../vue/vol.php');
+        header('Location: ../../src/modele/vol.php');
         $this->hydrate();
 
     }

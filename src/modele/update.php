@@ -13,7 +13,7 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -33,7 +33,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/cover.css" rel="stylesheet">
+    <link href="../../assets/css/cover.css" rel="stylesheet">
 </head>
 <body class="d-flex h-100 text-center text-white bg bg-dark">
 
@@ -43,11 +43,11 @@
 
             <h3 class="float-md-start mb-0">HurJet</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end justify-content-center">
-                <a class="nav-link text-light" href="../index.html">Accueil</a>
+                <a class="nav-link text-light" href="../../index.html">Accueil</a>
                 <a class="nav-link text-light" href="vol.php">Vol</a>
-                <a class="nav-link active text-light" href="#">Contact</a>
+                <a class="nav-link text-light" href="contact.html">Contact</a>
                 <a class="nav-link text-light" href="saisi.html">Saisir</a>
-                <a class="nav-link text-light" href="update.php">Modifier</a>
+                <a class="nav-link active text-light" href="#">Modifier</a>
                 <a class="nav-link text-light" href="delete.php">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
                 <a class="text-light btn btn-outline-secondary" href="connexionUser.php">Connexion</a>
@@ -55,15 +55,41 @@
             </nav>
         </div>
     </header>
-    <h1 class="text-light">Nous contactez</h1><br><br><br>
-    <main class="px-3">
-        <u>Adresse</u> : 1 Avenue des Champs-Elysées,<br> 75001 Paris<br><br>
-        <u>Mail</u> : h.lopes@lprs.fr<br><br>
-        <u>Telephone fixe</u> : 01.11.11.11.11<br><br>
-        <u>Telephone portable</u> : 06.66.66.66.66<br><br>
+    <div><br>
+        <h2>Mise a jour d'un vol</h2>
 
-    </main>
+        <p>Selectionner l'ID du vol a modifier</p>
 
+        <form action="../traitement/updateVol.php" method="post">
+
+            <select name="id_vol">
+                <?php
+                require_once '../../src/bdd/Bdd.php';
+                $bdd = new Bdd();
+                $req = $bdd->bdd()->prepare('SELECT * FROM vol');
+                $req->execute();
+                while($val = $req->fetch()){ ?>
+                    <option><?php echo $val['id_vol']?></option>
+                <?php  }
+                $_POST['id_vol'] = $val['id_vol'];
+                ?>
+            </select>
+
+            <br><br>
+            Date de départ<br><br>
+            <input type="date" name="ddepart" class="form-control"><br><br>
+            Heure d'arrivée<br><br>
+            <input type="time" name="hdepart" class="form-control"><br><br>
+            Heure de départ<br><br>
+            <input type="time" name="harrivee" class="form-control"><br><br>
+            Reference Pilote<br><br>
+            <input type="number" name="rpilote" class="form-control"><br><br>
+            Reference Avion<br><br>
+            <input type="number" name="ravion" class="form-control"><br><br>
+            <input type="submit" value="Valider">
+
+        </form>
+    </div>
     <footer class="mt-auto text-white-50">
 
     </footer>

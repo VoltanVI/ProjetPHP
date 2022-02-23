@@ -11,9 +11,8 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
 
 
-
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -33,7 +32,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/cover.css" rel="stylesheet">
+    <link href="../../assets/css/cover.css" rel="stylesheet">
 </head>
 <body class="d-flex h-100 text-center text-white bg bg-dark">
 
@@ -43,38 +42,31 @@
 
             <h3 class="float-md-start mb-0">HurJet</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end justify-content-center">
-                <a class="nav-link text-light" href="../index.html">Accueil</a>
+                <a class="nav-link text-light" href="../../index.html">Accueil</a>
                 <a class="nav-link text-light" href="vol.php">Vol</a>
                 <a class="nav-link text-light" href="contact.html">Contact</a>
-                <a class="nav-link active text-light" href="#">Saisir</a>
+                <a class="nav-link text-light" href="saisi.html">Saisir</a>
                 <a class="nav-link text-light" href="update.php">Modifier</a>
                 <a class="nav-link text-light" href="delete.php">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
-                <a class="text-light btn btn-outline-secondary" href="connexionUser.php">Connexion</a>
+                <a class="text-light btn btn-outline-secondary" href="#">Connexion</a>
             </nav>
         </div>
     </header>
-    <div>
 
-        <h2>Ajouter un vol</h2>
-        <br>
+    <main class="px-3">
 
-        <form action="../src/traitement/ajoutVol.php" method="post">
+        <form action="../traitement/connexion.php" method="post">
 
-            Date de départ<br><br>
-            <input type="date" name="ddepart" class="form-control"><br><br>
-            Heure d'arrivée<br><br>
-            <input type="time" name="hdepart" class="form-control"><br><br>
-            Heure de départ<br><br>
-            <input type="time" name="harrivee" class="form-control"><br><br>
-            Reference Pilote<br><br>
-            <input type="number" name="rpilote" class="form-control"><br><br>
-            Reference Avion<br><br>
-            <input type="number" name="ravion" class="form-control"><br><br>
+            Identifiant<br><br>
+            <input type="text" name="nom" class="form-control" placeholder="Nom"><br><br>
+            Mot de passe<br><br>
+            <input type="text" name="prenom" class="form-control" placeholder="Prenom"><br><br>
             <input type="submit" value="Valider">
 
         </form>
-    </div>
+    </main>
+
     <footer class="mt-auto text-white-50">
 
     </footer>
