@@ -5,12 +5,11 @@ class Vol
 {
 
     public function connexion (){
-        session_start();
         $bdd = new Bdd();
-        $sel = $bdd->bdd()->prepare('SELECT * FROM user WHERE login = :nom AND mdp = :prenom');
+        $sel = $bdd->bdd()->prepare('SELECT * FROM user WHERE login = :login AND mdp = :mdp');
         $sel->execute(array(
-            'nom' => $_POST['nom'],
-            'prenom' => $_POST['prenom']
+            'login' => $_POST['login'],
+            'mdp' => $_POST['mdp']
         ));
         $res = $sel->fetchAll();
 
@@ -22,7 +21,7 @@ class Vol
         } else {
             header('Location: ../../src/modele/connexionUser.php');
         }
-        $this->hydrate();
+        //$this->hydrate();
 
     }
 
@@ -38,9 +37,12 @@ class Vol
                 'login'=>$_POST['login'],
                 'mdp'=>$_POST['mdp']
             ));
-            header('Location: ');
-        }
+            var_dump($_POST);
+            header('Location: ../../src/modele/connexionUser.php');
 
+
+        }
+        header('Location: ../../src/modele/connexionUser.php');
 
     }
 
@@ -57,7 +59,7 @@ class Vol
             'ref_avion'=>$_POST['ravion']
         ));
         header('Location: ../../src/modele/vol.php');
-        $this->hydrate();
+        //$this->hydrate();
 
     }
 
@@ -83,7 +85,7 @@ class Vol
         ));
 
         header('Location: ../../src/modele/vol.php');
-        $this->hydrate();
+        //$this->hydrate();
 
     }
 
@@ -96,7 +98,7 @@ class Vol
 
         ));
         header('Location: ../../src/modele/vol.php');
-        $this->hydrate();
+        //$this->hydrate();
 
     }
 
