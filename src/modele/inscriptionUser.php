@@ -63,10 +63,12 @@
             Identifiant<br><br>
             <input type="email" name="login" class="form-control" placeholder="Identifiant"><br><br>
             Mot de passe<br><br>
-            <input type="password" name="mdp" class="form-control" placeholder="Mot de passe"><br><br>
+            <input type="password" name="mdp" class="form-control" placeholder="Mot de passe"><br>
+            <p><strong>Un mail vous seras envoyer apres votre inscription</strong></p><br>
             <input type="submit" value="Valider">
         </form>
         <br><br>
+
         <p>Déja inscrit, <a href="connexionUser.php">connexion</a></p>
     </main>
 
