@@ -56,7 +56,7 @@
 
     <main class="px-3">
 
-        <form action="../traitement/inscription.php" method="post">
+        <form action="../traitement/mail.php" method="post">
 
             Nom<br><br>
             <input type="text" name="nom" class="form-control" placeholder="Nom"><br><br>

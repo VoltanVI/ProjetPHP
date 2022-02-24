@@ -36,4 +36,5 @@ if(!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     echo 'Le message a bien été envoyé !';
+    header('Location: inscription.php');
 }
