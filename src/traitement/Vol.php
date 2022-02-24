@@ -102,6 +102,21 @@ class Vol
 
     }
 
+    public function updateUser(){
+
+        $bdd = new Bdd();
+        $up = $bdd->bdd()->prepare('UPDATE user SET nom = :nom, login = :login, mdp = :mdp WHERE id_user = :id_user');
+        $up->execute(array(
+            'id_user'=>$_POST['id'],
+            'nom'=>$_POST['newnom'],
+            'login'=>$_POST['newlogin'],
+            'mdp'=>$_POST['newmdp']
+
+        ));
+        header('Location: ../modele/Connected/espaceMembre.php');
+        //$this->hydrate();
+
+    }
     public function hydrate(array $donnees){
         foreach ($donnees as $key => $value) {
             $method = 'set' . ucfirst($key);

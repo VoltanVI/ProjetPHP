@@ -11,7 +11,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
 
 
-
     <!-- Bootstrap core CSS -->
     <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -43,24 +42,42 @@
 
             <h3 class="float-md-start mb-0">HurJet</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end justify-content-center">
-                <a class="nav-link text-light" href="indexCo.html">Accueil</a>
+                <a class="nav-link text-light" href="../../../index.html">Accueil</a>
                 <a class="nav-link text-light" href="volCo.php">Vol</a>
                 <a class="nav-link text-light" href="contactCo.html">Contact</a>
                 <a class="nav-link text-light" href="saisiCo.html">Saisir</a>
                 <a class="nav-link text-light" href="updateCo.php">Modifier</a>
                 <a class="nav-link text-light" href="deleteCo.php">Supprimer</a>
                 &nbsp&nbsp&nbsp&nbsp&nbsp
-                <a class="text-light btn btn-outline-secondary" href="../../traitement/deconnexion.php">Déconnexion</a>
-
+                <a class="text-light btn btn-outline-secondary" href="#">Connexion</a>
             </nav>
         </div>
     </header>
 
     <main class="px-3">
-        <p>Vous etes connecté !</p>
-
-        <h3><a href="modificationProfil.php">Modifier mon Profil</a></h3>
-
+    <h3>Modifier le profil</h3>
+        <form action="../../traitement/modifUser.php" method="post">
+           ID : <select name="id">
+                <?php
+                require_once '../../../src/bdd/Bdd.php';
+                $bdd = new Bdd();
+                $req = $bdd->bdd()->prepare('SELECT * FROM user');
+                $req->execute();
+                while($val = $req->fetch()){ ?>
+                    <option><?php echo $val['id_user']?></option>
+                <?php  }
+                $_POST['id_user'] = $val['id_user'];
+                ?>
+            </select>
+            <br><br>
+            Nouveau nom<br><br>
+            <input type="text" name="newnom" class="form-control" placeholder="Nom"><br><br>
+            Nouvel identifiant<br><br>
+            <input type="email" name="newlogin" class="form-control" placeholder="Identifiant"><br><br>
+            Nouveau mot de passe<br><br>
+            <input type="password" name="newmdp" class="form-control" placeholder="Mot de passe"><br><br>
+            <input type="submit" value="Valider">
+        </form>
     </main>
 
     <footer class="mt-auto text-white-50">
@@ -71,3 +88,4 @@
 
 </body>
 </html>
+
