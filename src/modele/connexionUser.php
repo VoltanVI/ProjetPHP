@@ -59,12 +59,13 @@
         <form action="../traitement/connexion.php" method="post">
 
             Identifiant<br><br>
-            <input type="text" name="nom" class="form-control" placeholder="Nom"><br><br>
+            <input type="email" name="login" class="form-control" placeholder="Identifiant"><br><br>
             Mot de passe<br><br>
-            <input type="text" name="prenom" class="form-control" placeholder="Prenom"><br><br>
+            <input type="password" name="mdp" class="form-control" placeholder="Mot de passe"><br><br>
             <input type="submit" value="Valider">
-
         </form>
+        <br><br>
+        <p>Pas encore <a href="inscriptionUser.php">inscrit</a></p>
     </main>
 
     <footer class="mt-auto text-white-50">
