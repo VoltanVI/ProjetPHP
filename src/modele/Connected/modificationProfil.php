@@ -72,8 +72,8 @@
             <br><br>
             Nouveau nom<br><br>
             <input type="text" name="newnom" class="form-control" placeholder="Nom"><br><br>
-            Nouvel identifiant<br><br>
-            <input type="email" name="newlogin" class="form-control" placeholder="Identifiant"><br><br>
+            Nouvel email<br><br>
+            <input type="email" name="newlogin" class="form-control" placeholder="Email"><br><br>
             Nouveau mot de passe<br><br>
             <input type="password" name="newmdp" class="form-control" placeholder="Mot de passe"><br><br>
             <input type="submit" value="Valider">

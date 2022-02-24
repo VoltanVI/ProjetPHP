@@ -58,8 +58,8 @@
 
         <form action="../traitement/connexion.php" method="post">
 
-            Identifiant<br><br>
-            <input type="email" name="login" class="form-control" placeholder="Identifiant"><br><br>
+            Adresse Electronique<br><br>
+            <input type="email" name="login" class="form-control" placeholder="Email"><br><br>
             Mot de passe<br><br>
             <input type="password" name="mdp" class="form-control" placeholder="Mot de passe"><br><br>
             <input type="submit" value="Valider">

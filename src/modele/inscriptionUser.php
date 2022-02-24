@@ -60,8 +60,8 @@
 
             Nom<br><br>
             <input type="text" name="nom" class="form-control" placeholder="Nom"><br><br>
-            Identifiant<br><br>
-            <input type="email" name="login" class="form-control" placeholder="Identifiant"><br><br>
+            Adresse Electronique<br><br>
+            <input type="email" name="login" class="form-control" placeholder="Email"><br><br>
             Mot de passe<br><br>
             <input type="password" name="mdp" class="form-control" placeholder="Mot de passe"><br>
             <p><strong>Un mail vous seras envoyer apres votre inscription</strong></p><br>
